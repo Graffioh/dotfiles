@@ -1,0 +1,16 @@
+{
+  "lastChangelogVersion": "0.50.3",
+  "defaultProvider": "anthropic",
+  "defaultModel": "claude-opus-4-5-20251101",
+  "defaultThinkingLevel": "high",
+  "packages": [
+    "npm:pi-subagents",
+    "npm:pi-powerline-footer",
+    "npm:pi-interview",
+    "npm:@walterra/pi-graphviz",
+    "npm:pi-review-loop",
+    "npm:@marckrenn/pi-sub-bar",
+    "npm:@marckrenn/pi-sub-core"
+  ],
+  "theme": "dark"
+}

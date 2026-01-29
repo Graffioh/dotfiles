@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plan Review</title>
+  <link rel="stylesheet" href="/styles.css?session=__SESSION_TOKEN__">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <h1 id="plan-title" class="plan-title"></h1>
+        <div class="header-meta">
+          <span id="project-path" class="meta-item"></span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+      <!-- Plan Content Section -->
+      <section class="plan-section">
+        <div class="section-header">
+          <h2>📋 Implementation Plan</h2>
+        </div>
+        
+        <!-- Overview -->
+        <div class="plan-block">
+          <h3>Overview</h3>
+          <div id="plan-overview" class="plan-text markdown-content"></div>
+        </div>
+
+        <!-- Current State (if exists) -->
+        <div class="plan-block" id="current-state-block" style="display: none;">
+          <h3>Current State</h3>
+          <div id="plan-current-state" class="plan-text markdown-content"></div>
+        </div>
+
+        <!-- Desired End State (if exists) -->
+        <div class="plan-block" id="desired-state-block" style="display: none;">
+          <h3>Desired End State</h3>
+          <div id="plan-desired-state" class="plan-text markdown-content"></div>
+        </div>
+
+        <!-- Out of Scope (if exists) -->
+        <div class="plan-block" id="out-of-scope-block" style="display: none;">
+          <h3>Out of Scope</h3>
+          <ul id="plan-out-of-scope" class="plan-list"></ul>
+        </div>
+
+        <!-- Phases -->
+        <div class="plan-block phases-block">
+          <h3>Implementation Phases</h3>
+          <div id="phases-container" class="phases-container"></div>
+        </div>
+
+        <!-- Testing Strategy (if exists) -->
+        <div class="plan-block" id="testing-block" style="display: none;">
+          <h3>Testing Strategy</h3>
+          <div id="testing-content" class="testing-content"></div>
+        </div>
+
+        <!-- References (if exists) -->
+        <div class="plan-block" id="references-block" style="display: none;">
+          <h3>References</h3>
+          <ul id="plan-references" class="plan-list"></ul>
+        </div>
+      </section>
+
+      <!-- Review Section -->
+      <section class="review-section">
+        <div class="section-header">
+          <h2>⚙️ Review & Configure</h2>
+        </div>
+
+        <!-- Decision -->
+        <div class="review-block">
+          <label class="block-label">Decision</label>
+          <div class="decision-options">
+            <label class="decision-option">
+              <input type="radio" name="decision" value="approve" checked>
+              <span class="decision-card approve">
+                <span class="decision-icon">✅</span>
+                <span class="decision-text">Approve</span>
+                <span class="decision-desc">Proceed with the plan</span>
+              </span>
+            </label>
+            <label class="decision-option">
+              <input type="radio" name="decision" value="modify">
+              <span class="decision-card modify">
+                <span class="decision-icon">🔄</span>
+                <span class="decision-text">Modify</span>
+                <span class="decision-desc">Approve with changes</span>
+              </span>
+            </label>
+            <label class="decision-option">
+              <input type="radio" name="decision" value="reject">
+              <span class="decision-card reject">
+                <span class="decision-icon">❌</span>
+                <span class="decision-text">Reject</span>
+                <span class="decision-desc">Start over</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Phase Selection -->
+        <div class="review-block" id="phase-selection-block">
+          <label class="block-label">Select Phases to Include</label>
+          <div id="phase-checkboxes" class="checkbox-grid"></div>
+        </div>
+
+        <!-- Priority -->
+        <div class="review-block">
+          <label class="block-label">Priority</label>
+          <div class="select-wrapper">
+            <select id="priority-select" class="styled-select">
+              <option value="🔴 Critical">🔴 Critical - Needs immediate attention</option>
+              <option value="🟠 High">🟠 High - Should be done soon</option>
+              <option value="🟡 Medium" selected>🟡 Medium - Normal priority</option>
+              <option value="🟢 Low">🟢 Low - When time permits</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Approach -->
+        <div class="review-block">
+          <label class="block-label">Approach</label>
+          <div class="select-wrapper">
+            <select id="approach-select" class="styled-select">
+              <option value="🚀 Fast">🚀 Fast - Minimal review, focus on delivery</option>
+              <option value="⚖️ Balanced" selected>⚖️ Balanced - Reasonable review at each phase</option>
+              <option value="🔬 Thorough">🔬 Thorough - Detailed review at every step</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Additional Requirements -->
+        <div class="review-block">
+          <label class="block-label">Additional Requirements</label>
+          <div class="checkbox-grid">
+            <label class="checkbox-item">
+              <input type="checkbox" name="requirements" value="📝 Generate detailed documentation">
+              <span>📝 Generate detailed documentation</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="requirements" value="🧪 TDD - Write tests first">
+              <span>🧪 TDD - Write tests first</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="requirements" value="🔄 Set up CI/CD pipeline">
+              <span>🔄 Set up CI/CD pipeline</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="requirements" value="📊 Add monitoring/logging">
+              <span>📊 Add monitoring/logging</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="requirements" value="🔒 Security review required">
+              <span>🔒 Security review required</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="requirements" value="📈 Performance benchmarks needed">
+              <span>📈 Performance benchmarks needed</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Constraints -->
+        <div class="review-block">
+          <label class="block-label">Constraints</label>
+          <div class="checkbox-grid">
+            <label class="checkbox-item">
+              <input type="checkbox" name="constraints" value="⏰ Time constraint - deadline approaching">
+              <span>⏰ Time constraint - deadline approaching</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="constraints" value="💾 Must maintain backward compatibility">
+              <span>💾 Must maintain backward compatibility</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="constraints" value="🚫 Cannot modify existing APIs">
+              <span>🚫 Cannot modify existing APIs</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="constraints" value="📦 Limited to existing dependencies">
+              <span>📦 Limited to existing dependencies</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="constraints" value="🔧 Must use specific technologies">
+              <span>🔧 Must use specific technologies</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Additional Notes -->
+        <div class="review-block">
+          <label class="block-label" for="notes-textarea">Additional Notes</label>
+          <textarea id="notes-textarea" class="notes-textarea" placeholder="Add any specific instructions, modifications, or context..."></textarea>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Actions -->
+    <footer class="footer">
+      <div class="footer-content">
+        <button type="button" id="cancel-btn" class="btn btn-secondary">
+          Cancel
+        </button>
+        <button type="button" id="submit-btn" class="btn btn-primary">
+          Submit Review
+        </button>
+      </div>
+      <div class="shortcuts-bar">
+        <span class="shortcut"><kbd>⌘</kbd><kbd>Enter</kbd> Submit</span>
+        <span class="shortcut"><kbd>Esc</kbd> Cancel</span>
+      </div>
+    </footer>
+
+    <!-- Success Overlay -->
+    <div id="success-overlay" class="overlay hidden">
+      <div class="overlay-content success">
+        <div class="overlay-icon">✓</div>
+        <h2>Review Submitted</h2>
+        <p>Closing...</p>
+      </div>
+    </div>
+
+    <!-- Cancel Overlay -->
+    <div id="cancel-overlay" class="overlay hidden">
+      <div class="overlay-content cancel">
+        <div class="overlay-icon">✗</div>
+        <h2>Review Cancelled</h2>
+        <p>Closing...</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.__PLAN_DATA__ = __PLAN_DATA_JSON__;
+  </script>
+  <script src="/script.js?session=__SESSION_TOKEN__"></script>
+</body>
+</html>
