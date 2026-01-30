@@ -1,0 +1,24 @@
+{
+  "name": "pi-web-search",
+  "version": "1.0.0",
+  "description": "Web search extension for pi using Exa API (free tier)",
+  "type": "module",
+  "keywords": [
+    "pi-package",
+    "pi",
+    "pi-coding-agent",
+    "extension",
+    "web-search",
+    "exa",
+    "search"
+  ],
+  "author": "Graffioh",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.9.3"
+  }
+}

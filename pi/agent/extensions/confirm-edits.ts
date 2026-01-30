@@ -3,19 +3,27 @@ import { Editor, type EditorTheme, Key, matchesKey, truncateToWidth } from "@mar
 
 interface ConfirmResult {
   confirmed: boolean;
+  acceptAll?: boolean;
   feedback?: string;
 }
 
 export default function (pi: ExtensionAPI) {
+  let acceptAllEdits = false;
+
   pi.on("tool_call", async (event, ctx) => {
     if (event.toolName !== "write" && event.toolName !== "edit") {
+      return;
+    }
+
+    // Skip confirmation if user has accepted all edits for this session
+    if (acceptAllEdits) {
       return;
     }
 
     const path = event.input.path || "unknown";
 
     const result = await ctx.ui.custom<ConfirmResult>((tui, theme, _kb, done) => {
-      let selectedIndex = 0; // 0 = Yes, 1 = No
+      let selectedIndex = 0; // 0 = Yes, 1 = No, 2 = Accept All
       let editMode = false;
       let cachedLines: string[] | undefined;
 
@@ -39,7 +47,8 @@ export default function (pi: ExtensionAPI) {
       function submit() {
         const feedback = editor.getText().trim();
         done({
-          confirmed: selectedIndex === 0,
+          confirmed: selectedIndex === 0 || selectedIndex === 2,
+          acceptAll: selectedIndex === 2,
           feedback: feedback || undefined,
         });
       }
@@ -62,8 +71,14 @@ export default function (pi: ExtensionAPI) {
         }
 
         // In selection mode
-        if (matchesKey(data, Key.left) || matchesKey(data, Key.right)) {
-          selectedIndex = selectedIndex === 0 ? 1 : 0;
+        if (matchesKey(data, Key.left)) {
+          selectedIndex = selectedIndex === 0 ? 2 : selectedIndex - 1;
+          refresh();
+          return;
+        }
+
+        if (matchesKey(data, Key.right)) {
+          selectedIndex = selectedIndex === 2 ? 0 : selectedIndex + 1;
           refresh();
           return;
         }
@@ -104,15 +119,18 @@ export default function (pi: ExtensionAPI) {
         add(theme.fg("text", ` Allow ${event.toolName} to ${path}?`));
         add("");
 
-        // Yes/No buttons
+        // Yes/No/Accept All buttons
         const yesBtn = selectedIndex === 0
           ? theme.bg("selectedBg", theme.fg("text", " Yes "))
           : theme.fg("muted", " Yes ");
         const noBtn = selectedIndex === 1
           ? theme.bg("selectedBg", theme.fg("text", " No "))
           : theme.fg("muted", " No ");
+        const acceptAllBtn = selectedIndex === 2
+          ? theme.bg("selectedBg", theme.fg("text", " Accept All "))
+          : theme.fg("muted", " Accept All ");
 
-        add(` ${yesBtn}  ${noBtn}`);
+        add(` ${yesBtn}  ${noBtn}  ${acceptAllBtn}`);
 
         // Show editor if in edit mode
         if (editMode) {
@@ -147,6 +165,11 @@ export default function (pi: ExtensionAPI) {
         ? `Blocked by user: ${result.feedback}`
         : "Blocked by user";
       return { block: true, reason };
+    }
+
+    // Set flag to skip future confirmations if user clicked "Accept All"
+    if (result.acceptAll) {
+      acceptAllEdits = true;
     }
 
     // If confirmed with feedback, inject a steering message
