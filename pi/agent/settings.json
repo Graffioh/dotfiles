@@ -1,16 +1,19 @@
 {
-  "lastChangelogVersion": "0.50.3",
+  "lastChangelogVersion": "0.50.5",
   "defaultProvider": "anthropic",
   "defaultModel": "claude-opus-4-5-20251101",
   "defaultThinkingLevel": "high",
   "packages": [
     "npm:pi-subagents",
-    "npm:pi-powerline-footer",
-    "npm:pi-interview",
     "npm:@walterra/pi-graphviz",
-    "npm:pi-review-loop",
     "npm:@marckrenn/pi-sub-bar",
-    "npm:@marckrenn/pi-sub-core"
+    "npm:@marckrenn/pi-sub-core",
+    "npm:pi-powerline-footer"
   ],
-  "theme": "dark"
+  "theme": "dark",
+  "extensions": [
+    "-extensions/plan-creator/index.ts"
+  ],
+  "workingVibe": "statrek",
+  "workingVibeMode": "file"
 }
