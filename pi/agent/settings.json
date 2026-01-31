@@ -4,7 +4,6 @@
   "defaultModel": "claude-opus-4-5-20251101",
   "defaultThinkingLevel": "high",
   "packages": [
-    "npm:pi-subagents",
     "npm:@walterra/pi-graphviz",
     "npm:@marckrenn/pi-sub-bar",
     "npm:@marckrenn/pi-sub-core",
@@ -14,6 +13,6 @@
   "extensions": [
     "-extensions/plan-creator/index.ts"
   ],
-  "workingVibe": "statrek",
+  "workingVibe": "berserk",
   "workingVibeMode": "file"
 }
