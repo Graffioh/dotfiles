@@ -14,5 +14,11 @@
     "-extensions/plan-creator/index.ts"
   ],
   "workingVibe": "berserk",
-  "workingVibeMode": "file"
+  "workingVibeMode": "file",
+  "pi-screenshots": {
+    "sources": [
+      "~/Desktop/ss",
+      "~/Desktop/ss2"
+    ]
+  }
 }
