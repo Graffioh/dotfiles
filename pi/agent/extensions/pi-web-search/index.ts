@@ -315,7 +315,7 @@ Parameters:
 			),
 		}),
 
-		async execute(toolCallId, params, onUpdate, ctx, signal) {
+		async execute(toolCallId, params, signal, onUpdate, ctx) {
 			const {
 				query,
 				numResults = config.defaultNumResults ?? 5,

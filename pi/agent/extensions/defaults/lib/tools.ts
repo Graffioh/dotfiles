@@ -18,7 +18,7 @@ export function setupTools(pi: ExtensionAPI): void {
 
   pi.registerTool({
     ...nativeRead,
-    async execute(toolCallId, params, onUpdate, ctx, signal) {
+    async execute(toolCallId, params, signal, onUpdate, ctx) {
       const { path } = params as {
         path: string;
         offset?: number;
@@ -36,7 +36,7 @@ export function setupTools(pi: ExtensionAPI): void {
           ctx.ui.notify(`read called on directory: ${path}`, "info");
 
           // Delegate to native ls when reading a directory
-          return nativeLs.execute(toolCallId, { path }, signal);
+          return nativeLs.execute(toolCallId, { path }, signal, onUpdate, ctx);
         }
       } catch {
         // Path does not exist or cannot be accessed - let nativeRead handle the error
@@ -48,6 +48,7 @@ export function setupTools(pi: ExtensionAPI): void {
         params as { path: string; offset?: number; limit?: number },
         signal,
         onUpdate,
+        ctx,
       );
     },
   });
