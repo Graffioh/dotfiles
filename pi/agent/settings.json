@@ -1,8 +1,8 @@
 {
-  "lastChangelogVersion": "0.51.0",
+  "lastChangelogVersion": "0.51.6",
   "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-5.2-codex",
-  "defaultThinkingLevel": "high",
+  "defaultModel": "gpt-5.2",
+  "defaultThinkingLevel": "medium",
   "packages": [
     "npm:@walterra/pi-graphviz",
     "npm:@marckrenn/pi-sub-bar",
@@ -19,5 +19,9 @@
     "sources": [
       "~/Desktop/ss"
     ]
-  }
+  },
+  "enabledModels": [
+    "openai-codex/gpt-5.2-codex",
+    "openai-codex/gpt-5.2"
+  ]
 }
