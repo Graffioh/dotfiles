@@ -1,8 +1,8 @@
 {
   "lastChangelogVersion": "0.51.0",
-  "defaultProvider": "openrouter",
-  "defaultModel": "moonshotai/kimi-k2.5",
-  "defaultThinkingLevel": "off",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.2-codex",
+  "defaultThinkingLevel": "high",
   "packages": [
     "npm:@walterra/pi-graphviz",
     "npm:@marckrenn/pi-sub-bar",
