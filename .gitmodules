@@ -4,3 +4,6 @@
 [submodule "pi/agent/extensions/pi-screenshots-picker"]
 	path = pi/agent/extensions/pi-screenshots-picker
 	url = https://github.com/Graffioh/pi-screenshots-picker
+[submodule "pi/agent/extensions/pi-codex-profile"]
+	path = pi/agent/extensions/pi-codex-profile
+	url = https://github.com/Graffioh/pi-codex-profile

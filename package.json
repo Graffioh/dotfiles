@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@aliou/pi-guardrails": "^0.7.0",
+    "@marckrenn/pi-sub-bar": "^1.0.6",
+    "@walterra/pi-graphviz": "^0.0.4"
+  }
+}

@@ -1,1 +1,3 @@
 pi/agent/skills/codebase-ripper/src/codebase_ripper/__pycache__
+node_modules/
+**/node_modules/
