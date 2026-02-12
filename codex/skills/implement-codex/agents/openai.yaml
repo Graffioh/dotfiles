@@ -1,0 +1,4 @@
+interface:
+  display_name: "Implement Codex"
+  short_description: "Plan-driven implementation with progress tracking"
+  default_prompt: "Implement all tasks in plan.md, mark tasks/phases complete as you go, do not stop until done, avoid unnecessary comments/JSDoc, never use any/unknown, and continuously run typecheck."

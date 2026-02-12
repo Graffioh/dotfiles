@@ -1,0 +1,4 @@
+interface:
+  display_name: "Research Codex"
+  short_description: "Deep codebase research and findings reports"
+  default_prompt: "Run a deep-read of the requested system area, trace flows end-to-end, investigate likely bugs, and write a detailed research.md report."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Plan Codex"
+  short_description: "Detailed implementation planning in plan.md"
+  default_prompt: "Convert research into a source-grounded plan.md with phased todo checklists, concrete file changes, realistic code snippets, and explicit trade-offs; do not implement yet."

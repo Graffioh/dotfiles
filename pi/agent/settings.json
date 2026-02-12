@@ -1,8 +1,8 @@
 {
-  "lastChangelogVersion": "0.52.7",
+  "lastChangelogVersion": "0.52.9",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.3-codex",
-  "defaultThinkingLevel": "high",
+  "defaultThinkingLevel": "medium",
   "compaction": {
     "enabled": true,
     "reserveTokens": 20000,
@@ -13,7 +13,8 @@
     "npm:@marckrenn/pi-sub-bar",
     "npm:@marckrenn/pi-sub-core",
     "npm:@aliou/pi-guardrails",
-    "npm:pi-web-access"
+    "npm:pi-web-access",
+    "npm:@pborck/pi-de"
   ],
   "theme": "dark",
   "extensions": [
@@ -29,5 +30,11 @@
   "enabledModels": [
     "openai-codex/gpt-5.2",
     "openai-codex/gpt-5.3-codex"
-  ]
+  ],
+  "markdown": {
+    "fileLinkScheme": "vscode"
+  },
+  "editorLink": {
+    "scheme": "vscode"
+  }
 }
