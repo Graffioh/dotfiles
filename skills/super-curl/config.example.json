@@ -1,0 +1,16 @@
+{
+  "baseUrl": "https://httpbin.org",
+  "headers": {},
+  "endpoints": [
+    {
+      "name": "get",
+      "url": "/get",
+      "method": "GET"
+    },
+    {
+      "name": "post",
+      "url": "/post",
+      "method": "POST"
+    }
+  ]
+}

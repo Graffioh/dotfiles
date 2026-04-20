@@ -1,3 +1,6 @@
 pi/agent/skills/codebase-ripper/src/codebase_ripper/__pycache__
 node_modules/
 **/node_modules/
+
+# Local API config (copy from config.example.json)
+skills/super-curl/config.json
