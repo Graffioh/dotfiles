@@ -1,7 +1,7 @@
 {
-  "lastChangelogVersion": "0.52.9",
-  "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-5.3-codex",
+  "lastChangelogVersion": "0.66.1",
+  "defaultProvider": "github-copilot",
+  "defaultModel": "claude-haiku-4.5",
   "defaultThinkingLevel": "medium",
   "compaction": {
     "enabled": true,
@@ -28,8 +28,8 @@
     ]
   },
   "enabledModels": [
-    "openai-codex/gpt-5.2",
-    "openai-codex/gpt-5.3-codex"
+    "openai-codex/gpt-5.3-codex",
+    "openai-codex/gpt-5.3-codex-spark"
   ],
   "markdown": {
     "fileLinkScheme": "vscode"
