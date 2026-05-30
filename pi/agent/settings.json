@@ -1,22 +1,23 @@
 {
-  "lastChangelogVersion": "0.66.1",
-  "defaultProvider": "github-copilot",
-  "defaultModel": "claude-haiku-4.5",
-  "defaultThinkingLevel": "medium",
+  "lastChangelogVersion": "0.73.1",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.5",
+  "defaultThinkingLevel": "low",
   "compaction": {
     "enabled": true,
     "reserveTokens": 20000,
     "keepRecentTokens": 30000
   },
   "packages": [
-    "npm:@walterra/pi-graphviz",
-    "npm:@marckrenn/pi-sub-bar",
-    "npm:@marckrenn/pi-sub-core",
-    "npm:@aliou/pi-guardrails",
     "npm:pi-web-access",
-    "npm:@pborck/pi-de"
+    "npm:@juicesharp/rpiv-todo",
+    "npm:@juicesharp/rpiv-ask-user-question",
+    "npm:pi-btw"
   ],
-  "theme": "dark",
+  "themes": [
+    "~/Desktop/dotfiles/pi/agent/themes"
+  ],
+  "theme": "factory-ai",
   "extensions": [
     "-extensions/plan-creator/index.ts"
   ],
@@ -28,13 +29,28 @@
     ]
   },
   "enabledModels": [
-    "openai-codex/gpt-5.3-codex",
-    "openai-codex/gpt-5.3-codex-spark"
+    "openai-codex/gpt-5.5"
   ],
   "markdown": {
     "fileLinkScheme": "vscode"
   },
   "editorLink": {
     "scheme": "vscode"
+  },
+  "modelProfiles": {
+    "profile1": {
+      "label": "Hard",
+      "model": "openai-codex/gpt-5.5",
+      "thinkingLevel": "xhigh"
+    },
+    "profile2": {
+      "label": "Quick",
+      "model": "openai-codex/gpt-5.5",
+      "thinkingLevel": "low"
+    },
+    "profile3": {
+      "label": "No Thinking",
+      "thinkingLevel": "off"
+    }
   }
 }

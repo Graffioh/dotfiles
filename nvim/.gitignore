@@ -1,8 +1,5 @@
-tt.*
-.tests
-doc/tags
-debug
-.repro
-foo.*
+# Neovim runtime/state that may land in the config dir
+data/
 *.log
-data
+
+# Note: lazy-lock.json is intentionally committed (reproducible plugin versions)
