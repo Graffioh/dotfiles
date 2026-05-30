@@ -24,7 +24,16 @@ return {
   },
   config = function()
     local telescope = require("telescope")
-    telescope.setup({})
+    telescope.setup({
+      pickers = {
+        -- <leader>fb: most-recently-used first, hide the current buffer ->
+        -- the file you just left sits at the top, ready to <CR>.
+        buffers = {
+          sort_mru = true,
+          ignore_current_buffer = true,
+        },
+      },
+    })
     pcall(telescope.load_extension, "fzf") -- only if the native lib built
   end,
 }

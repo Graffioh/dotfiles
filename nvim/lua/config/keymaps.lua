@@ -11,6 +11,14 @@ map("n", "<C-j>", "<C-w>j", { desc = "Go to lower window" })
 map("n", "<C-k>", "<C-w>k", { desc = "Go to upper window" })
 map("n", "<C-l>", "<C-w>l", { desc = "Go to right window" })
 
+-- Buffer navigation (Italian-keyboard friendly: no caret/dead keys).
+-- <Tab>/<S-Tab> are free in normal mode here (blink.cmp uses the 'default'
+-- preset in insert mode, so there is no conflict).
+map("n", "<Tab>", "<cmd>bnext<cr>", { desc = "Next buffer" })
+map("n", "<S-Tab>", "<cmd>bprevious<cr>", { desc = "Previous buffer" })
+map("n", "<leader><leader>", "<cmd>e #<cr>", { desc = "Toggle last (alternate) buffer" })
+map("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "Delete (close) buffer" })
+
 -- Copy relative file path to system clipboard (kept from your old config)
 map("n", "<leader>cp", function()
   local path = vim.fn.expand("%")
