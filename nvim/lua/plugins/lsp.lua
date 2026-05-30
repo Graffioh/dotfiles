@@ -46,12 +46,29 @@ return {
           vim.keymap.set("n", keys, fn, { buffer = ev.buf, desc = "LSP: " .. desc })
         end
         map("gd", vim.lsp.buf.definition, "Goto definition")
-        map("gr", vim.lsp.buf.references, "References")
+        -- Floating, previewable list of every usage site (Telescope picker)
+        -- instead of the default quickfix dump from vim.lsp.buf.references.
+        map("gr", "<cmd>Telescope lsp_references<cr>", "References (Telescope)")
         map("gI", vim.lsp.buf.implementation, "Goto implementation")
         map("K", vim.lsp.buf.hover, "Hover")
         map("<leader>rn", vim.lsp.buf.rename, "Rename symbol")
         map("<leader>ca", vim.lsp.buf.code_action, "Code action")
         map("gl", vim.diagnostic.open_float, "Line diagnostics")
+        map("<leader>glc", function()
+          -- Copy this line's diagnostic message(s) to the system clipboard.
+          -- Matches gl's scope (whole line); joins multiple with newlines.
+          local lnum = vim.api.nvim_win_get_cursor(0)[1] - 1 -- 0-indexed
+          local diags = vim.diagnostic.get(ev.buf, { lnum = lnum })
+          if vim.tbl_isempty(diags) then
+            vim.notify("No diagnostics on this line", vim.log.levels.INFO)
+            return
+          end
+          local msgs = vim.tbl_map(function(d)
+            return d.message
+          end, diags)
+          vim.fn.setreg("+", table.concat(msgs, "\n"))
+          vim.notify("Copied diagnostic to clipboard")
+        end, "Copy line diagnostic(s) to clipboard")
         map("[d", function() vim.diagnostic.jump({ count = -1 }) end, "Prev diagnostic")
         map("]d", function() vim.diagnostic.jump({ count = 1 }) end, "Next diagnostic")
       end,
