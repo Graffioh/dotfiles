@@ -1,5 +1,5 @@
 -- Statusline. theme = "auto" derives colors from the active colorscheme,
--- so it matches eldritch automatically.
+-- so it matches solarized automatically.
 return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",

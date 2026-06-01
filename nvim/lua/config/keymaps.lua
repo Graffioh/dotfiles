@@ -19,6 +19,11 @@ map("n", "<S-Tab>", "<cmd>bprevious<cr>", { desc = "Previous buffer" })
 map("n", "<leader><leader>", "<cmd>e #<cr>", { desc = "Toggle last (alternate) buffer" })
 map("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "Delete (close) buffer" })
 
+-- Quickfix navigation (populate the list from Telescope with <C-q>).
+-- <leader>n / <leader>N step through results without clobbering search n/N.
+map("n", "<leader>n", "<cmd>cnext<cr>", { desc = "Next quickfix item" })
+map("n", "<leader>N", "<cmd>cprev<cr>", { desc = "Previous quickfix item" })
+
 -- Copy relative file path to system clipboard (kept from your old config)
 map("n", "<leader>cp", function()
   local path = vim.fn.expand("%")

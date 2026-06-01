@@ -8,7 +8,7 @@ unfocused-split-fill = #002b36
 
 # Breathing room inside each pane (wider gutter separates splits more)
 window-padding-x = 10
-window-padding-y = 10
+window-padding-y = 5
 window-padding-balance = true
 
 # Behavior

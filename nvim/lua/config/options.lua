@@ -7,7 +7,7 @@ opt.number = true -- absolute line number on the cursor line
 opt.relativenumber = true -- relative numbers elsewhere (fast j/k motions)
 opt.cursorline = true -- highlight the current line
 opt.signcolumn = "yes" -- always show the sign column (no text shift)
-opt.termguicolors = true -- 24-bit color (required for eldritch)
+opt.termguicolors = true -- 24-bit color (required for solarized)
 opt.showmode = false -- mode is shown in lualine instead
 opt.scrolloff = 8 -- keep this many lines above/below the cursor
 opt.wrap = false -- no soft-wrap by default
@@ -38,7 +38,7 @@ opt.clipboard = "unnamedplus"
 
 -- Responsiveness
 opt.updatetime = 250 -- faster CursorHold / diagnostics
-opt.timeoutlen = 400 -- mapped-sequence wait time
+opt.timeoutlen = 500 -- mapped-sequence wait time
 opt.mouse = "a"
 
 -- Whitespace hints

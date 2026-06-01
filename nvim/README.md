@@ -12,7 +12,7 @@ lua/config/
   keymaps.lua            general keymaps
   lazy.lua               bootstrap lazy.nvim, import lua/plugins/*
 lua/plugins/
-  colorscheme.lua        eldritch theme
+  colorscheme.lua        gruvbox theme
   oil.lua                file explorer (edit fs as a buffer)
   treesitter.lua         syntax (nvim-treesitter, main branch)
   lsp.lua                mason + mason-lspconfig + nvim-lspconfig
