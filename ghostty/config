@@ -1,13 +1,14 @@
 theme = iTerm2 Solarized Dark
 cursor-color = #ff8700
 
-# Make split dividers clearer
+# Differentiate panes: keep the divider, dim inactive panes slightly toward the bg
 split-divider-color = #657b83
-unfocused-split-opacity = 0.85
+unfocused-split-opacity = 0.75
+unfocused-split-fill = #002b36
 
-# Breathing room inside each pane
-window-padding-x = 6
-window-padding-y = 6
+# Breathing room inside each pane (wider gutter separates splits more)
+window-padding-x = 10
+window-padding-y = 10
 window-padding-balance = true
 
 # Behavior
