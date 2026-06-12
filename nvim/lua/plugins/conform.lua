@@ -30,6 +30,9 @@ return {
         javascriptreact = { "prettier" },
         typescriptreact = { "prettier" },
         json = { "prettier" },
+        -- ruff is the canonical Python formatter; organize imports first, then
+        -- format. Same `ruff` binary the LSP uses (installed via mason in lsp.lua).
+        python = { "ruff_organize_imports", "ruff_format" },
         -- Any filetype not listed falls back to the LSP via lsp_format below.
       },
       -- Run on save. lsp_format = "fallback": use the configured formatter when

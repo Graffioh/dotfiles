@@ -15,6 +15,10 @@ return {
     { "<leader>gg", "<cmd>Neogit<cr>", desc = "Neogit" },
   },
   opts = {
+    -- Syntax-highlight diff hunks in the status buffer via treesitter
+    -- (off by default). Uses the parser for each file's filetype, so the
+    -- ts/tsx/js/json/etc. parsers installed in treesitter.lua must be present.
+    treesitter_diff_highlight = true,
     integrations = {
       telescope = true,
       diffview = true,

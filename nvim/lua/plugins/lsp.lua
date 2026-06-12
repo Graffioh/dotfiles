@@ -33,10 +33,28 @@ return {
       -- settings = { typescript = { ... } },
     })
 
+    -- Python: basedpyright (types/completion/hover) + ruff (lint/format/imports).
+    -- This is the standard modern pair. Division of labor below avoids overlap:
+    --   * ruff owns import organization, so tell basedpyright to skip it.
+    --   * basedpyright owns hover, so silence ruff's (noisier) hover.
+    vim.lsp.config("basedpyright", {
+      settings = {
+        basedpyright = {
+          disableOrganizeImports = true, -- ruff does this
+        },
+      },
+    })
+
+    vim.lsp.config("ruff", {
+      on_attach = function(client)
+        client.server_capabilities.hoverProvider = false
+      end,
+    })
+
     -- 3. Install + auto-enable. Names are nvim-lspconfig SERVER names
     --    (ts_ls -> typescript-language-server package), not mason package names.
     require("mason-lspconfig").setup({
-      ensure_installed = { "clangd", "ts_ls" },
+      ensure_installed = { "clangd", "ts_ls", "basedpyright", "ruff", "bashls" },
     })
 
     -- 4. Buffer-local keymaps once a server attaches.
