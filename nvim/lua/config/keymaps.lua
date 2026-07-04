@@ -30,3 +30,10 @@ map("n", "<leader>cp", function()
   vim.fn.setreg("+", path)
   print(path)
 end, { desc = "Copy relative file path" })
+
+-- Copy current file directory to system clipboard
+map("n", "<leader>ccwd", function()
+  local dir = vim.fn.expand("%:p:h")
+  vim.fn.setreg("+", dir)
+  print(dir)
+end, { desc = "Copy current file directory" })
