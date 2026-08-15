@@ -1,0 +1,7 @@
+# Never publish local secrets, identity, session data, or dependencies
+.credentials.yaml
+.anonymous-user-id
+sessions/
+storages/
+profiles/node_modules/
+.DS_Store
