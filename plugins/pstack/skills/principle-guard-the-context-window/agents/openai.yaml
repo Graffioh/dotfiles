@@ -1,0 +1,4 @@
+interface:
+  display_name: "principle-guard-the-context-window"
+  short_description: "Explicit pstack workflow or principle"
+  default_prompt: "Use $principle-guard-the-context-window for this task."

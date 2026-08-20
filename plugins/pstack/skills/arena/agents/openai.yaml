@@ -1,0 +1,4 @@
+interface:
+  display_name: "arena"
+  short_description: "Explicit pstack workflow or principle"
+  default_prompt: "Use $arena for this task."

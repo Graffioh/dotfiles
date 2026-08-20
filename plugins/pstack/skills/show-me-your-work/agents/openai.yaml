@@ -1,0 +1,4 @@
+interface:
+  display_name: "show-me-your-work"
+  short_description: "Explicit pstack workflow or principle"
+  default_prompt: "Use $show-me-your-work for this task."

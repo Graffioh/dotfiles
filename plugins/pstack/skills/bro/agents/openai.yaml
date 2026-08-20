@@ -1,0 +1,4 @@
+interface:
+  display_name: "bro"
+  short_description: "Explicit pstack workflow or principle"
+  default_prompt: "Use $bro for this task."

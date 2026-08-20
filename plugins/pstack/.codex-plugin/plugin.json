@@ -1,0 +1,35 @@
+{
+  "name": "pstack",
+  "version": "0.14.1+codex.20260820",
+  "description": "A Codex adaptation of pstack: rigorous engineering workflows, parallel review, concise prose, simple code, and verified results.",
+  "author": {
+    "name": "Lauren Tan"
+  },
+  "homepage": "https://github.com/cursor/plugins/tree/main/pstack",
+  "repository": "https://github.com/cursor/plugins",
+  "license": "MIT",
+  "keywords": [
+    "pstack",
+    "poteto-mode",
+    "workflow",
+    "principles",
+    "subagents",
+    "review"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "pstack",
+    "shortDescription": "Rigorous engineering workflows for Codex",
+    "longDescription": "A Codex-native adaptation of Lauren Tan's pstack workflows for investigation, design, implementation, review, verification, and parallel agent work.",
+    "developerName": "Lauren Tan (Codex adaptation)",
+    "category": "Developer Tools",
+    "capabilities": ["Interactive", "Write"],
+    "websiteURL": "https://github.com/cursor/plugins/tree/main/pstack",
+    "defaultPrompt": [
+      "Use $poteto-mode for this engineering task.",
+      "Use $how to trace how this subsystem works.",
+      "Use $interrogate to review this diff adversarially."
+    ],
+    "brandColor": "#EAB308"
+  }
+}

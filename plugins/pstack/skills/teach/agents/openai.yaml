@@ -1,0 +1,4 @@
+interface:
+  display_name: "teach"
+  short_description: "Explicit pstack workflow or principle"
+  default_prompt: "Use $teach for this task."
