@@ -1,9 +1,0 @@
-[submodule "pi/agent/extensions/pi-super-curl"]
-	path = pi/agent/extensions/pi-super-curl
-	url = https://github.com/Graffioh/pi-super-curl
-[submodule "pi/agent/extensions/pi-screenshots-picker"]
-	path = pi/agent/extensions/pi-screenshots-picker
-	url = https://github.com/Graffioh/pi-screenshots-picker
-[submodule "pi/agent/extensions/pi-codex-profile"]
-	path = pi/agent/extensions/pi-codex-profile
-	url = https://github.com/Graffioh/pi-codex-profile
