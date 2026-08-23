@@ -24,7 +24,8 @@
       "prompts": [],
       "themes": []
     },
-    "npm:pi-markdown-preview"
+    "npm:pi-markdown-preview",
+    "../../Desktop/pi-review"
   ],
   "enabledModels": [
     "openai-codex/gpt-5.5"
