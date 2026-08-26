@@ -1,6 +1,6 @@
 ---
 name: analyze-code-structure
-description: Walk the user through a PR's APIs, data structures, ownership, naming, runtime flow, and module boundaries before reorganizing the design. Use after creating or updating a PR, or when the user asks to review code structure instead of unit-level implementation.
+description: Walk the user through a change's APIs, data structures, ownership, naming, runtime flow, and module boundaries before reorganizing the design. Works on a PR, a branch, the working tree, or a named module. Use after creating or updating a PR, or when the user asks to review code structure instead of unit-level implementation.
 ---
 
 # Analyze code structure
@@ -9,24 +9,28 @@ Help the user inspect and direct the shape of a change. Treat the user as the de
 
 ## Ground the review
 
-- Resolve the PR base and head from the PR metadata when available. Otherwise identify the branch's upstream and use its merge base. If more than one base is plausible and the choice changes the review, ask the user.
-- Review the base-to-head delta, not every change on the branch or every file in the repository.
+- Resolve the PR base and head from the PR metadata when available. Otherwise diff the branch against the merge base of its upstream (`git diff upstream...head`, three-dot, so upstream drift stays out of the review). If more than one base is plausible and the choice changes the review, ask the user.
+- With no PR or branch delta, review the working-tree diff against the merge base. For a named module or directory with no delta, review its current structure and skip the delta labeling below.
+- Review the delta, not every change on the branch or every file in the repository.
 - Read changed declarations, implementations, and tests.
 - Trace callers and owners outside the diff when they determine an API's real contract.
-- Label structures as introduced by the PR, changed by the PR, or pre-existing context.
+- Label structures as introduced by the change, modified by it, or pre-existing context.
 - Keep correctness requirements separate from design preferences.
 
 ## Build the walkthrough
 
-Present the code in this order:
+Scale depth to the change. In each section cover the two to four most structurally significant items in full and list the rest by name only. Keep the whole walkthrough to roughly one screen per major module; the user will drill into whatever matters, so prefer under-explaining to flooding.
+
+Open with the pressure points: three to five bullets naming where the structure is under strain, without assuming the preferred fix. The rest of the walkthrough is the evidence behind those bullets.
+
+Then present the code in this order:
 
 1. State the change's job and system boundary in plain language.
 2. Show public and cross-module APIs. Include exact signatures and representative callers.
 3. Show each changed or newly important data structure. Explain what it owns, borrows, mutates, and caches.
 4. Trace construction, steady-state use, reset, invalidation, and destruction. Skip lifecycle stages that do not exist.
-5. Map which module makes each decision and which modules consume it.
+5. For each policy decision in the change — when to invalidate, which path to take, which format or mode to use — name the one module that decides it and the modules that must obey it. Flag any decision made in more than one place.
 6. List the names a reader must learn. Flag names that hide mode, ownership, cardinality, or lifetime.
-7. Identify structural pressure points without assuming the preferred fix.
 
 Use a small table, flow, or ownership tree when it makes relationships easier to compare. Link every code claim to the actual file and line.
 
@@ -56,7 +60,7 @@ Do not ask the user to decide facts that source inspection can answer. Do not bu
 
 When the user chooses a direction, restate the target structure with concrete names and caller examples. Point out compatibility and lifecycle consequences. Implement only when the current request authorizes changes.
 
-## Keep the review honest
+## When implementing the chosen direction
 
 - Prefer fewer concepts when two designs enforce the same invariants.
 - Do not introduce a type only to avoid a nullable field unless the type removes a real invalid state or ownership hazard.
