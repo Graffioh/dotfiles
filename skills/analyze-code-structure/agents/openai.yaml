@@ -1,0 +1,4 @@
+interface:
+  display_name: "Analyze Code Structure"
+  short_description: "Review a PR structure with the author"
+  default_prompt: "Use $analyze-code-structure to walk me through this PR structure before making edits."
