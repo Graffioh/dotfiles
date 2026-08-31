@@ -1,4 +1,0 @@
-interface:
-  display_name: "Lucebox Function Explainer"
-  short_description: "Annotate a Lucebox symbol with 1:1 core code"
-  default_prompt: "Use $lucebox-function-explainer to reproduce and annotate the 1:1 core flow of this Lucebox symbol, omitting only peripheral plumbing."

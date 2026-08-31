@@ -1,29 +1,29 @@
 ---
 name: setup-pstack
-description: Configure which Codex models pstack uses per role. Detects the available collaboration models and writes a user-scoped override file. Use for $setup-pstack, "configure pstack models", or changing pstack's model choices.
+description: Configure which Codex models and reasoning efforts pstack uses per role. Detects the available collaboration options and writes a user-scoped override file. Use for $setup-pstack, "configure pstack models", or changing pstack's model choices.
 ---
 
 # Setup pstack
 
-Write `~/.codex/pstack-models.md`, a pstack configuration file that sets the model per role. Pstack skills read it explicitly and fall back to their inline defaults when a line is absent, so this is an override layer, not a requirement.
+Write `~/.codex/pstack-models.md`, a pstack configuration file that sets the model and, where configured, the reasoning effort per role. Pstack skills read it explicitly and fall back to their inline defaults when a line is absent, so this is an override layer, not a requirement.
 
 ## Steps
 
 ### 1. Detect available models
 
-Enumerate the model identifiers accepted by Codex's `spawn_agent` tool in this session; its schema is the dependable source. If Codex exposes another authoritative model list, use it only to supplement that schema. If no explicit list is available, use `inherit-parent`, which is always valid because omitting the model override inherits the parent. Never write a model identifier you have not confirmed is available.
+Enumerate the model identifiers and reasoning efforts accepted by Codex's `spawn_agent` tool in this session; its schema is the dependable source. If Codex exposes another authoritative model list, use it only to supplement that schema. If no explicit model list is available, use `inherit-parent`, which is always valid because omitting the model override inherits the parent. Never write a model or reasoning effort you have not confirmed is available for that model.
 
 ### 2. Load current state
 
-The default role-to-model mapping is the rule shape shown in step 5 below. If `~/.codex/pstack-models.md` already exists, read it and treat its values as the current choices. Otherwise start from those defaults.
+The default role mapping is the rule shape shown in step 5 below. If `~/.codex/pstack-models.md` already exists, read it and treat its values as the current choices. Otherwise start from those defaults.
 
 ### 3. Map and confirm
 
-Show every role with its current model, marking any identifier not in the detected set as needing a choice. Ask whether to accept the mapping or change specific roles. Offer the detected models plus `inherit-parent`. Use a structured question tool when one is available; otherwise ask one concise question. For panel roles, one subagent runs per entry, so the list length sets the panel size. `arena cross-judge pool` is also a list, but Arena selects one model different from the primary runner when possible. `swarm workers` is the default worker model unless a race assigns another model per arm.
+Show every role with its current model, plus any configured reasoning effort. Mark unavailable values as needing a choice. Ask whether to accept the mapping or change specific roles. Offer the detected models plus `inherit-parent`, and only reasoning efforts supported by the selected model. Use a structured question tool when one is available; otherwise ask one concise question. For panel roles, one subagent runs per entry, so the list length sets the panel size. `arena cross-judge pool` is also a list, but Arena selects one model different from the primary runner when possible. `swarm workers` is the default worker model unless a race assigns another model per arm.
 
 ### 4. Validate
 
-Every model written must be in the detected set; `inherit-parent` always passes. If a chosen model is unavailable, stop and ask again.
+Every model written must be in the detected set; `inherit-parent` always passes. Every reasoning effort must be supported by its role's model. If a chosen value is unavailable, stop and ask again.
 
 ### 5. Write the rule
 
@@ -50,6 +50,7 @@ arena cross-judge pool: gpt-5.6-terra, gpt-5.6-sol, gpt-5.6-luna, gpt-5.5
 swarm workers: gpt-5.6-luna
 architect runners: gpt-5.6-terra, gpt-5.6-sol, gpt-5.6-luna, gpt-5.5
 interrogate reviewers: gpt-5.6-terra, gpt-5.6-sol, gpt-5.6-luna, gpt-5.5
+interrogate reviewer reasoning: high
 ```
 
 ### 6. Confirm

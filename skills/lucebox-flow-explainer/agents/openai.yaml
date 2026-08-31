@@ -1,4 +1,0 @@
-interface:
-  display_name: "Lucebox Flow Explainer"
-  short_description: "Trace HTTP requests through generation"
-  default_prompt: "Use $lucebox-flow-explainer to trace this Lucebox request from http_server through token generation and HTTP completion."

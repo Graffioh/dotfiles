@@ -1,6 +1,6 @@
 {
   "name": "pstack",
-  "version": "0.14.1+codex.20260820",
+  "version": "0.14.2+codex.20260831",
   "description": "A Codex adaptation of pstack: rigorous engineering workflows, parallel review, concise prose, simple code, and verified results.",
   "author": {
     "name": "Lauren Tan"

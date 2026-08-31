@@ -27,7 +27,7 @@ two steps:
 
 new here? the [pstack guide](./docs/guide/README.md) walks you through a first real task, from setup and prompting through verification and overnight runs.
 
-the other skills are situational. by default, precisely specified code goes to `gpt-5.6-sol`, fast mechanical work to `gpt-5.6-luna`, prose and judgment to `gpt-5.6-terra`, and a different review perspective to `gpt-5.5`. [`$setup-pstack`](./skills/setup-pstack/SKILL.md) changes the mapping.
+the other skills are situational. by default, precisely specified code goes to `gpt-5.6-sol`, fast mechanical work to `gpt-5.6-luna`, prose and judgment to `gpt-5.6-terra`, and the review panel uses high reasoning across several models. [`$setup-pstack`](./skills/setup-pstack/SKILL.md) changes the mapping and reviewer reasoning.
 
 ## usage
 

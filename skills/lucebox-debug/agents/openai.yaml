@@ -1,4 +1,0 @@
-interface:
-  display_name: "Lucebox Debug"
-  short_description: "Trace, instrument, and debug Lucebox paths"
-  default_prompt: "Use $lucebox-debug to trace and debug this Lucebox behavior with a reproducible, evidence-driven workflow."

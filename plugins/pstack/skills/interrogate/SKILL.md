@@ -1,6 +1,6 @@
 ---
 name: interrogate
-description: "Use for \"interrogate\", \"adversarial review\", \"multi-model review\", \"challenge this\", \"stress test this code\", \"find blind spots\", or \"tear this apart\". Multiple LLM reviewers challenge changes from independent angles."
+description: "Use for \"interrogate\", \"adversarial review\", \"multi-model review\", \"challenge this\", \"stress test this code\", \"find blind spots\", or \"tear this apart\". One or more LLM reviewers challenge changes from independent angles."
 ---
 
 # Interrogate
@@ -32,7 +32,7 @@ Write one clear paragraph. Reviewers challenge whether the work achieves the int
 
 ## Step 3, Spawn Reviewers
 
-Launch all reviewers in a single message using the collaboration agent tools. Use the `interrogate reviewers` list from `~/.codex/pstack-models.md` when present, one reviewer per entry, extending or shrinking the Reviewer A/B/C/D labels below to the configured entry count; otherwise use the table defaults.
+Launch all reviewers in a single message using the collaboration agent tools. Use the `interrogate reviewers` list from `~/.codex/pstack-models.md` when present, one reviewer per entry, extending or shrinking the Reviewer A/B/C/D labels below to the configured entry count; otherwise use the table defaults. Use `interrogate reviewer reasoning` from the same file when present; otherwise use `high`.
 
 | Subagent | Default model |
 |----------|---------------|
@@ -44,9 +44,10 @@ Launch all reviewers in a single message using the collaboration agent tools. Us
 For each reviewer:
 - `task_name`: a unique name such as `interrogate_a`
 - `model`: the configured `interrogate reviewers` entry, or the table default with no configured line
+- `reasoning_effort`: the configured `interrogate reviewer reasoning`, default `high`
 - prompt constraint: read and report only; do not edit files
 
-If a model identifier is rejected, check the valid identifiers in the collaboration tool schema or error, choose the closest available model, and continue. If the configured value is `inherit-parent`, omit `model`.
+If a model or reasoning value is rejected, check the valid values in the collaboration tool schema or error, choose the closest available value, and continue. If the configured model is `inherit-parent`, omit `model`.
 
 Read `references/reviewer-prompt.md` and fill in the template with:
 1. The stated intent
